@@ -293,8 +293,8 @@
           <path d="M8 9V6.5a4 4 0 0 1 8 0V9"></path>
         </svg>
       </div>
-      <h3 id="modalTitle">Enter Passcode</h3>
-      <p>Enter the passcode to view LocalHire credentials.</p>
+      <h3 id="modalTitle">Tell Secret</h3>
+      <p>Tell use One secret to View Other secrets</p>
       <input class="passcode-input" id="passcodeInput" type="password" placeholder="Enter passcode" autocomplete="off">
       <div class="passcode-error" id="passcodeError"></div>
       <div class="modal-actions">
@@ -329,14 +329,14 @@
     }
 
     function unlockCredentials() {
-      if (passcodeInput.value === "Sample") {
+      if (passcodeInput.value === "7093") {
         const destination = passcodeModal.dataset.destination || "LocalHire.pdf";
         passcodeModal.classList.remove("show");
         window.location.href = destination;
         return;
       }
 
-      passcodeError.textContent = "Incorrect passcode. Please try again.";
+      passcodeError.textContent = "Not Big Enough";
       passcodeInput.select();
     }
 
