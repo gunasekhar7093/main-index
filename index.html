@@ -321,12 +321,18 @@
     }
 
     function openChatuiPdf() {
-      window.location.href = "chatui.pdf";
+      passcodeModal.classList.add("show");
+      passcodeInput.value = "";
+      passcodeError.textContent = "";
+      passcodeModal.dataset.destination = "chatui.pdf";
+      setTimeout(() => passcodeInput.focus(), 50);
     }
 
     function unlockCredentials() {
       if (passcodeInput.value === "Sample") {
-        window.location.href = "LocalHire.pdf";
+        const destination = passcodeModal.dataset.destination || "LocalHire.pdf";
+        passcodeModal.classList.remove("show");
+        window.location.href = destination;
         return;
       }
 
