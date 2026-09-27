@@ -321,7 +321,13 @@
     }
 
     function unlockCredentials() {
-      passcodeError.textContent = "Passcode verification will be connected to the protected PDF.";
+      if (passcodeInput.value === "Sample") {
+        window.location.href = "LocalHire.pdf";
+        return;
+      }
+
+      passcodeError.textContent = "Incorrect passcode. Please try again.";
+      passcodeInput.select();
     }
 
     passcodeInput.addEventListener("keydown", (event) => {
