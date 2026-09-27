@@ -202,12 +202,12 @@
       </article>
 
       <article class="card">
-        <span class="lock" aria-label="Protected project">
+        <button class="lock chatui-lock" type="button" aria-label="Open Chatui PDF" title="Chatui PDF" onclick="openChatuiPdf()">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <rect x="4" y="9" width="16" height="12" rx="2.5"></rect>
             <path d="M8 9V6.5a4 4 0 0 1 8 0V9"></path>
           </svg>
-        </span>
+        </button>
         <span class="number">02</span>
         <h2>Chatui</h2>
         <div class="links">
@@ -318,6 +318,10 @@
 
     function closeCredentials() {
       passcodeModal.classList.remove("show");
+    }
+
+    function openChatuiPdf() {
+      window.location.href = "chatui.pdf";
     }
 
     function unlockCredentials() {
