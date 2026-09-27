@@ -96,6 +96,81 @@
     a:hover { background: rgba(59,130,246,.18); transform: translateX(3px); }
     .type { color: #94a3b8; font-size: .75rem; text-transform: uppercase; letter-spacing: .8px; display: block; margin-bottom: 4px; }
     footer { text-align: center; color: #64748b; margin-top: 42px; font-size: .85rem; }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(2, 6, 23, .74);
+      backdrop-filter: blur(9px);
+      z-index: 1000;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal {
+      width: min(390px, 100%);
+      padding: 28px;
+      border: 1px solid rgba(148,163,184,.22);
+      border-radius: 22px;
+      background: rgba(15,23,42,.97);
+      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+      animation: modalIn .2s ease-out;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(12px) scale(.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 14px;
+      background: rgba(59,130,246,.12);
+      border: 1px solid rgba(96,165,250,.2);
+    }
+    .modal-icon svg {
+      width: 25px;
+      height: 25px;
+      fill: none;
+      stroke: #93c5fd;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .modal h3 { font-size: 1.35rem; margin-bottom: 7px; }
+    .modal p { color: #94a3b8; font-size: .9rem; margin-bottom: 20px; }
+    .passcode-input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid rgba(148,163,184,.22);
+      border-radius: 12px;
+      outline: none;
+      background: rgba(30,41,59,.8);
+      color: #f8fafc;
+      font-size: 1rem;
+    }
+    .passcode-input:focus {
+      border-color: rgba(96,165,250,.7);
+      box-shadow: 0 0 0 3px rgba(59,130,246,.12);
+    }
+    .passcode-error { min-height: 20px; margin-top: 8px; color: #f87171; font-size: .8rem; }
+    .modal-actions { display: flex; gap: 10px; margin-top: 10px; }
+    .modal-actions button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,.18);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: .9rem;
+    }
+    .cancel-btn { background: rgba(30,41,59,.8); color: #cbd5e1; }
+    .unlock-btn { background: #2563eb; color: white; border-color: #3b82f6 !important; }
+    .modal-actions button:hover { filter: brightness(1.12); }
   </style>
 </head>
 <body>
@@ -209,15 +284,54 @@
 
     <footer>Built by Guna Sekhar • Hosted with GitHub Pages</footer>
   </main>
+
+  <div class="modal-overlay" id="passcodeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="modal-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="4" y="9" width="16" height="12" rx="2.5"></rect>
+          <path d="M8 9V6.5a4 4 0 0 1 8 0V9"></path>
+        </svg>
+      </div>
+      <h3 id="modalTitle">Enter Passcode</h3>
+      <p>Enter the passcode to view LocalHire credentials.</p>
+      <input class="passcode-input" id="passcodeInput" type="password" placeholder="Enter passcode" autocomplete="off">
+      <div class="passcode-error" id="passcodeError"></div>
+      <div class="modal-actions">
+        <button class="cancel-btn" type="button" onclick="closeCredentials()">Cancel</button>
+        <button class="unlock-btn" type="button" onclick="unlockCredentials()">Unlock</button>
+      </div>
+    </div>
+  </div>
+  </main>
 <script>
+    const passcodeModal = document.getElementById("passcodeModal");
+    const passcodeInput = document.getElementById("passcodeInput");
+    const passcodeError = document.getElementById("passcodeError");
+
     function openCredentials() {
-      const passcode = prompt("Enter passcode to open LocalHire credentials:");
-      if (passcode === "Sample") {
-        window.location.href = "credentials.html";
-      } else if (passcode !== null) {
-        alert("Incorrect passcode.");
-      }
+      passcodeModal.classList.add("show");
+      passcodeInput.value = "";
+      passcodeError.textContent = "";
+      setTimeout(() => passcodeInput.focus(), 50);
     }
+
+    function closeCredentials() {
+      passcodeModal.classList.remove("show");
+    }
+
+    function unlockCredentials() {
+      passcodeError.textContent = "Passcode verification will be connected to the protected PDF.";
+    }
+
+    passcodeInput.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeCredentials();
+      if (event.key === "Enter") unlockCredentials();
+    });
+
+    passcodeModal.addEventListener("click", (event) => {
+      if (event.target === passcodeModal) closeCredentials();
+    });
   </script>
 </body>
 </html>
