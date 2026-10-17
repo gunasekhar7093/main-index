@@ -57,6 +57,7 @@
     }
     .hero-link:hover { background: rgba(14,165,233,.24); border-color: #38bdf8; transform: translateY(-2px); }
     .hero-link svg { width: 18px; height: 18px; fill: currentColor; }
+    .hero-link svg.render-globe { fill: none; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
     .card {
       position: relative;
@@ -104,6 +105,7 @@
     .repo-link:hover { color: #fff; background: rgba(14,165,233,.28); transform: translateY(-2px); }
     .logo-link { width: 38px; height: 38px; padding: 8px; }
     .logo-link svg { width: 100%; height: 100%; fill: currentColor; display: block; }
+    .logo-link svg.render-globe { fill: none; }
     .logo-link[aria-label*="Render"] svg { fill: none; }
     .links { display: flex; flex-direction: column; gap: 10px; }
     a {
@@ -213,7 +215,7 @@
           Vercel
         </a>
         <a class="hero-link" href="https://dashboard.render.com" target="_blank" rel="noopener noreferrer" aria-label="Open Render dashboard">
-          <svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="16" cy="16" r="13"/><ellipse cx="16" cy="16" rx="6" ry="13"/><path d="M3.8 11h24.4M3.8 21h24.4M16 3v26"/></svg>
+          <svg class="render-globe" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="16" cy="16" r="13"/><ellipse cx="16" cy="16" rx="6" ry="13"/><path d="M3.8 11h24.4M3.8 21h24.4M16 3v26"/></svg>
           Render
         </a>
       </div>
