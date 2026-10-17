@@ -102,6 +102,9 @@
     .project-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .repo-link { display: inline-flex; align-items: center; justify-content: center; padding: 6px 9px; border-radius: 9px; color: #bae6fd; background: rgba(8,35,55,.72); border: 1px solid rgba(56,189,248,.28); font-size: .75rem; font-weight: 650; text-decoration: none; }
     .repo-link:hover { color: #fff; background: rgba(14,165,233,.28); transform: translateY(-2px); }
+    .logo-link { width: 38px; height: 38px; padding: 8px; }
+    .logo-link svg { width: 100%; height: 100%; fill: currentColor; display: block; }
+    .logo-link[aria-label*="Render"] svg { fill: none; }
     .links { display: flex; flex-direction: column; gap: 10px; }
     a {
       display: block;
@@ -221,7 +224,17 @@
           </svg>
         </button>
         <span class="number">01</span>
-        <h2 class="project-title">LocalHire <a class="repo-link" href="https://github.com/gunasekhar7093/LocalHire" target="_blank" rel="noopener noreferrer" aria-label="Open LocalHire GitHub repository" title="LocalHire GitHub repository">GitHub</a> <a class="repo-link" href="https://vercel.com/gunasekhar-solo-team/localhire" target="_blank" rel="noopener noreferrer" aria-label="Open LocalHire on Vercel" title="LocalHire Vercel project">Vercel <a class="repo-link" href="https://dashboard.render.com/web/srv-d9umush5efls73d0vuo0" target="_blank" rel="noopener noreferrer" aria-label="Open LocalHire on Render dashboard" title="LocalHire Render dashboard">Render</a></h2>
+        <h2 class="project-title">LocalHire
+          <a class="repo-link logo-link" href="https://github.com/gunasekhar7093/LocalHire" target="_blank" rel="noopener noreferrer" aria-label="Open LocalHire GitHub repository" title="GitHub repository">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.07c-3.1.67-3.76-1.32-3.76-1.32-.5-1.29-1.24-1.63-1.24-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.71 2.63 1.22 3.27.93.1-.72.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.11-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.11 5.52.4.35.76 1.03.76 2.08V22c0 .29.2.64.77.53A11.1 11.1 0 0 0 12 .9Z"/></svg>
+          </a>
+          <a class="repo-link logo-link" href="https://vercel.com/gunasekhar-solo-team/localhire" target="_blank" rel="noopener noreferrer" aria-label="Open LocalHire Vercel project" title="Vercel project">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 23 21H1L12 3Z"/></svg>
+          </a>
+          <a class="repo-link logo-link" href="https://dashboard.render.com/web/srv-d9umush5efls73d0vuo0" target="_blank" rel="noopener noreferrer" aria-label="Open LocalHire Render dashboard" title="Render dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h8a5 5 0 0 1 0 10H4V5Zm0 10h6a4 4 0 0 1 0 8H4v-8Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+          </a>
+        </h2>
         <div class="links">
           <a href="http://localhire-blue.vercel.app" target="_blank" rel="noopener">
             <span class="type">Vercel</span>localhire-blue.vercel.app
