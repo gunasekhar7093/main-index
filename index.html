@@ -99,6 +99,9 @@
       letter-spacing: 1px;
     }
     h2 { margin: 8px 0 18px; font-size: 1.45rem; }
+    .project-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .repo-link { display: inline-flex; align-items: center; justify-content: center; padding: 6px 9px; border-radius: 9px; color: #bae6fd; background: rgba(8,35,55,.72); border: 1px solid rgba(56,189,248,.28); font-size: .75rem; font-weight: 650; text-decoration: none; }
+    .repo-link:hover { color: #fff; background: rgba(14,165,233,.28); transform: translateY(-2px); }
     .links { display: flex; flex-direction: column; gap: 10px; }
     a {
       display: block;
@@ -218,7 +221,7 @@
           </svg>
         </button>
         <span class="number">01</span>
-        <h2>LocalHire</h2>
+        <h2 class="project-title">LocalHire <a class="repo-link" href="https://github.com/gunasekhar7093/LocalHire" target="_blank" rel="noopener noreferrer" aria-label="Open LocalHire GitHub repository" title="LocalHire GitHub repository">↗ GitHub</a></h2>
         <div class="links">
           <a href="http://localhire-blue.vercel.app" target="_blank" rel="noopener">
             <span class="type">Vercel</span>localhire-blue.vercel.app
